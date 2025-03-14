@@ -9,13 +9,15 @@ CREATE TABLE users (
 
 -- Create assets table
 CREATE TABLE assets (
-    asset_id VARCHAR(10) PRIMARY KEY, -- e.g., 'BTC', 'AAPL'
+    asset_id VARCHAR(10) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     type VARCHAR(50) CHECK (type IN ('crypto', 'stock', 'commodity')),
     current_price DECIMAL(18, 2) NOT NULL
 );
 
 -- Create transactions table (partitioned)
+DROP TABLE IF EXISTS transactions;
+
 CREATE TABLE transactions (
     transaction_id SERIAL,
     user_id INT NOT NULL REFERENCES users(user_id),
