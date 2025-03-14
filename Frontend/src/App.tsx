@@ -14,7 +14,7 @@ import { TransactionHistory } from './components/TransactionHistory';
 import { MarketAnalytics } from './components/MarketAnalytics';
 import { AlertsPanel } from './components/AlertsPanel';
 
-const MOCK_USER_ID = 'user-123'; // This should come from auth context
+const MOCK_USER_ID = '3319'; // This should come from auth context
 
 function App() {
   const [portfolio, setPortfolio] = useState<Portfolio | null>(null);
