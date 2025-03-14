@@ -127,7 +127,7 @@ for _ in range(100000):
 ## Deliverable Artifacts
 
 1. **ER Diagram**  
-   ![ER Diagram](https://i.imgur.com/9WvxZQx.png)  
+   ![ER Diagram](https://imgur.com/a/mfkFORk)  
    *Created with pgAdmin/dbdiagram.io*
 
 2. **Partitioning/Sharding Proof**  
