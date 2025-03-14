@@ -1,0 +1,22 @@
+type Transaction {
+  transaction_id: ID!
+  user_id: Int!
+  asset_id: String!
+  type: String!
+  quantity: Float!
+  price: Float!
+  fee: Float!
+  timestamp: String!
+}
+
+type Query {
+  getTransactions(
+    user_id: Int!,
+    start: String!,
+    end: String!
+  ): [Transaction]
+}
+
+schema {
+  query: Query
+}
