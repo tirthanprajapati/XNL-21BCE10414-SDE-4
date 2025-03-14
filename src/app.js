@@ -19,13 +19,25 @@ const app = express();
 
 // REST API routes
 const transactionRoutes = require('./routes/transactions');
+const portfolioRoutes = require('./routes/portfolio');
+const marketRoutes = require('./routes/market');
+const alertsRoutes = require('./routes/alerts');
+
+app.use(cors());
+app.use(bodyParser.json());
+
+// Mount REST endpoints
 app.use('/transactions', transactionRoutes);
+app.use('/portfolio', portfolioRoutes);
+app.use('/market-data', marketRoutes);
+app.use('/alerts', alertsRoutes);
 
 // Apollo Server setup
 const apolloServer = new ApolloServer({ typeDefs, resolvers });
 (async () => {
   await apolloServer.start();
-  app.use(cors(), bodyParser.json(), expressMiddleware(apolloServer));
+  // Apollo middleware placed after REST endpoints to avoid conflicts if needed
+  app.use(expressMiddleware(apolloServer));
 })();
 
 // Create HTTP server for Socket.io
